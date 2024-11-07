@@ -1,0 +1,41 @@
+from datetime import datetime
+
+# Задаем дату рождения (06.01.1996)
+day = 6
+month = 1
+year = 1996
+
+# Шаг 2: Определяем квартал года
+if month >= 1 and month <= 3:
+    quarter = 1
+elif month >= 4 and month <= 6:
+    quarter = 2
+elif month >= 7 and month <= 9:
+    quarter = 3
+elif month >= 10 and month <= 12:
+    quarter = 4
+else:
+    quarter = None  # Неверный месяц
+
+# Выводим квартал
+if quarter:
+    print(f"Вы родились в {quarter} квартале года.")
+else:
+    print("Неверно введен месяц.")
+
+# Шаг 3: Проверяем, является ли год высокосным
+is_leap_year = (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0)
+if is_leap_year:
+    print(f"{year} год является високосным.")
+else:
+    print(f"{year} год не является високосным.")
+
+# Шаг 4: Определяем, сколько дней прошло с вашего рождения
+# Возможная дата рождения
+birth_date = datetime(year, month, day)
+# Текущая дата
+current_date = datetime.now()
+# Вычисляем разницу в днях
+days_passed = (current_date - birth_date).days
+
+print(f"С вашего рождения прошло {days_passed} дней.")
